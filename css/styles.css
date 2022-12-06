@@ -16,7 +16,7 @@ body {
   flex-direction: column;
   min-height: 100vh;
   margin: 0;
-  padding: 1em;
+  /* padding: 1em; */
   font-size: clamp(.5rem, 2.5vmin, 1.5rem);
 }
 
@@ -29,12 +29,20 @@ body {
 }
 
 .btn-box {
+  display: flex;
   margin-left: 0;
 }
 
 .switch-btn {
+  border: 1px solid white;
+  padding: .5rem;
+  border-radius: 10px;
   font-size: 12px;
   cursor: pointer;
+}
+
+.main {
+  padding-bottom: 1em;
 }
 
 .keyboard {
