@@ -11,7 +11,24 @@ const msOffset = Date.now() - offsetFromDate
 const dayOffset = msOffset / 1000 / 60 / 60 / 24
 const targetWord = targetWords[Math.floor(dayOffset)]
 
-console.log(dictionary)
+const clrBtn = document.getElementById('clr-switch')
+
+clrBtn.addEventListener('click', () => {
+  const r = document.querySelector(':root')
+  if (clrBtn.innerText === 'light') {
+    clrBtn.innerText = 'dark'
+    r.style.setProperty('--bkg-clr', '#ccc')
+    r.style.setProperty('--text-clr', 'black')
+    r.style.setProperty('--key-clr', 'black')
+    r.style.setProperty('--key-text-clr', 'white')
+  } else {
+    clrBtn.innerText = 'light'
+    r.style.setProperty('--bkg-clr', 'hsl(240, 3%, 7%)')
+    r.style.setProperty('--text-clr', 'white')
+    r.style.setProperty('--key-clr', 'hsl(200, 1%, 51%')
+    r.style.setProperty('--key-text-clr', 'white')
+  }
+})
 
 startInteraction()
 
@@ -69,6 +86,7 @@ function pressKey(key) {
 }
 
 function deleteKey() {
+  console.log('delete key')
   const activeTiles = getActiveTiles()
   const lastTile = activeTiles[activeTiles.length - 1]
   if (lastTile == null) return
