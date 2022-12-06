@@ -15300,6 +15300,8 @@ const msOffset = Date.now() - offsetFromDate
 const dayOffset = msOffset / 1000 / 60 / 60 / 24
 const targetWord = targetWords[Math.floor(dayOffset)]
 
+console.log('Version 2.0')
+
 startInteraction()
 
 function startInteraction() {
