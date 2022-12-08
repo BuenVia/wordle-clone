@@ -15,18 +15,18 @@ const clrBtn = document.getElementById('clr-switch')
 
 clrBtn.addEventListener('click', () => {
   const r = document.querySelector(':root')
-  if (clrBtn.innerText === 'light') {
-    clrBtn.innerText = 'dark'
-    r.style.setProperty('--bkg-clr', '#ccc')
+  if (clrBtn.checked === true) {
+    r.style.setProperty('--bkg-clr', '#eee')
     r.style.setProperty('--text-clr', 'black')
     r.style.setProperty('--key-clr', 'black')
     r.style.setProperty('--key-text-clr', 'white')
+    r.style.setProperty('--head-clr', 'lightgrey')
   } else {
-    clrBtn.innerText = 'light'
     r.style.setProperty('--bkg-clr', 'hsl(240, 3%, 7%)')
     r.style.setProperty('--text-clr', 'white')
     r.style.setProperty('--key-clr', 'hsl(200, 1%, 51%')
     r.style.setProperty('--key-text-clr', 'white')
+    r.style.setProperty('--head-clr', 'rgb(33, 0, 77)')
   }
 })
 
