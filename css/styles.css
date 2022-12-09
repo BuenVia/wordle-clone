@@ -1,16 +1,124 @@
+:root {
+  --text-clr: white;
+  --bkg-clr: hsl(240, 3%, 7%);
+  --key-clr: hsl(210, 1%, 51%);
+  --key-text-clr: white;
+  --head-clr: rgb(33, 0, 77);
+}
+
 *, *::after, *::before {
   box-sizing: border-box;
   font-family: Arial;
 }
 
 body {
-  background-color: hsl(240, 3%, 7%);
+  background-color: var(--bkg-clr);
   display: flex;
   flex-direction: column;
   min-height: 100vh;
   margin: 0;
-  padding: 1em;
+  /* padding: 1em; */
   font-size: clamp(.5rem, 2.5vmin, 1.5rem);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--head-clr);
+  margin-bottom: 1em;
+  padding: .5rem 0;
+}
+
+.nav {
+  width: 1200px;
+  display: flex;
+  align-items: center;
+  color: var(--text-clr);
+}
+
+.nav-title {
+  width: 100%;
+  font-size: 24px;
+}
+
+.nav-box {
+  display: flex;
+  align-items: center;
+}
+
+.switch-text {
+  margin: 0 .5em;
+  font-size: 12px;
+}
+
+.switch-btn {
+  border: 1px solid white;
+  padding: .5rem;
+  border-radius: 10px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 24px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgb(74, 63, 104);
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: rgb(49, 8, 77);
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #ffffff;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.main {
+  padding-bottom: 1em;
 }
 
 .keyboard {
@@ -29,12 +137,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: hsl(
-    var(--hue, 200),
-    var(--saturation, 1%),
-    calc(var(--lightness-offset, 0%) + var(--lightness, 51%))
-  );
-  color: white;
+  background-color: var(--key-clr);
+  color: var(--key-text-clr);
   fill: white;
   text-transform: uppercase;
   border-radius: .25em;
@@ -84,7 +188,7 @@ body {
 
 .tile {
   font-size: 2em;
-  color: white;
+  color: var(--text-clr);
   border: .05em solid hsl(240, 2%, 23%);
   text-transform: uppercase;
   font-weight: bold;
@@ -102,6 +206,7 @@ body {
 .tile[data-state="wrong"] {
   border: none;
   background-color: hsl(240, 2%, 23%);
+  color: var(--key-text-clr);
 }
 
 .tile[data-state="wrong-location"] {
