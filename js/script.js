@@ -11,7 +11,20 @@ const msOffset = Date.now() - offsetFromDate
 const dayOffset = msOffset / 1000 / 60 / 60 / 24
 const targetWord = targetWords[Math.floor(dayOffset)]
 
-const clrBtn = document.getElementById('clr-switch')
+const clrBtn = document.getElementById('clrSwitch')
+const newWordHours = document.getElementById('newWordHours')
+const newWordMins = document.getElementById('newWordMins')
+
+function showTime() {
+  newWordHours.innerText = (23 - new Date().getHours())
+  newWordMins.innerText = (60 - new Date().getMinutes())
+}
+
+window.addEventListener('onload', showTime())
+
+setInterval(
+  showTime, 6000
+) 
 
 clrBtn.addEventListener('click', () => {
   const r = document.querySelector(':root')
